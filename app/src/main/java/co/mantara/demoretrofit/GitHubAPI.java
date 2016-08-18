@@ -29,10 +29,7 @@ public class GitHubAPI {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .client(okHttpClient.build())
-                //.addConverterFactory(GsonConverterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder()
-                        .excludeFieldsWithModifiers(Modifier.FINAL, Modifier.TRANSIENT, Modifier.STATIC)
-                        .create()))
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         gitHubService = retrofit.create(GitHubService.class);
